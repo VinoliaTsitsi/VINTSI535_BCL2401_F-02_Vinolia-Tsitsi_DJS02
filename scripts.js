@@ -11,7 +11,10 @@ If (!dividend.trim() || !divider.trim()) {
   return;  
 } 
 
-if  
+if (isNaN(dividend) || isNaN(divider) || divider === '0'){
+  result.innerHTML = "<div class = 'error-message'>Division not performed. Invalid number provided. try again </div>";
+  return;  
+}
 
 
 });
