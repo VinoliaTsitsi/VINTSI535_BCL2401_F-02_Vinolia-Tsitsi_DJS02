@@ -23,11 +23,20 @@ if (!Number.isInteger(quotient)){
   result.innerText = quotient; 
 }
 
-if (isNaN(quotient)){
-  document.body.innerHTML="<div class= 'critical-error'>Something critical went wrong. Please reload the page</div>"; 
-  console.error("Critical error : Inputs are not numbers"); 
-}
+if (isNaN(quotient)) {
+  // Display critical error message
+  const criticalError = document.createElement('div');
+  criticalError.classList.add('critical-error');
+  criticalError.innerText = "Something critical went wrong. Please reload the page";
+  document.body.innerHTML = ""; 
+  document.body.appendChild(criticalError);
+  console.error("Critical error: Inputs are not numbers");
 
+  // Reload the page after a delay
+  setTimeout(() => {
+    location.reload();
+  }, 3000); // Reload the page after 3 seconds
+}
 
 });
 
